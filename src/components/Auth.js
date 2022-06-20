@@ -13,6 +13,7 @@ class Auth {
       this.authenticated = false;
       this.token = null;
       localStorage.removeItem("jwt");
+      localStorage.removeItem("userType");
       
     }
   

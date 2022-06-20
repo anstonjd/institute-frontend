@@ -9,6 +9,9 @@ import Products from "./components/products"
 import Navbar from "./components/navbar";
 import News from "./components/news";
 import LandingPage from "./components/landingPage";
+import AdminLogin from "./components/AdminLogin";
+import AddProduct from "./components/Addproduct";
+import Addnews from "./components/Addnews";
 
 function App() {
   const [user, setUser] = useState({ name: "", email: "" });
@@ -35,11 +38,15 @@ function App() {
       {/* <switch> */}
         <BrowserRouter>
           <Routes>
+          <Route exact path="/admin-login" element={<AdminLogin/>} />
+          <Route exact path="/add-product" element={<AddProduct/>} />
+          <Route exact path="/add-news" element={<Addnews/>} />
           <Route exact path="/register" element={<RegisterForm/>} />
           <Route exact path="/login" element={<LoginForm/>} />
           <Route exact path="/products" element={<Products/>} />
           <Route exact path="/news" element={<News/>} />
           <Route exact path="/" element={<LandingPage/>} />
+          
             
           </Routes>
         </BrowserRouter>

@@ -21,6 +21,9 @@ function AdminLogin() {
       Auth.token=response.data.token;
       Auth.authenticated= true;
       localStorage.setItem("jwt",response.data.token)
+      if(response.data.userType){
+        localStorage.setItem("userType",response.data.userType)
+      }
       setRedirect({redirect:"/products"})
       return <Navigate to="/products" />
       
@@ -86,7 +89,7 @@ function AdminLogin() {
           </ul>
         </div>
         <div className="col-md-8 login-custom">
-          <h4>login to your registered acc!</h4>
+          <h4>ADMIN LOGIN</h4>
           {error.error ? <div className="col-md-12 alert alert-danger">{error.error}</div> :""}
           <div className="col-md-12">
             <div className="row">
@@ -122,7 +125,7 @@ function AdminLogin() {
                 Remember Me
               </label>
               {/* <a title="Lost Password" href="#" className="lost-pass-link"> */}
-                Lost your password?
+                
               {/* </a> */}
             </div>
           </div>
@@ -140,71 +143,7 @@ function AdminLogin() {
 
       
 
-      {/* <div className="banner-area content-top-heading less-paragraph text-normal">
-        <div
-          id="bootcarousel"
-          className="carousel slide animate_text carousel-fade"
-          data-ride="carousel"
-        >
-          <div className="carousel-inner text-light carousel-zoom">
-            <div className="item active">
-              <div
-                className="slider-thumb bg-fixed"
-                style={{ backgroundImage: "url(assets/img/2440x1578.png)" }}
-              ></div>
-              <div className="box-table shadow dark">
-                <div className="box-cell">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-md-8">
-                        <div className="content">
-                          <h3 data-animation="animated slideInLeft">
-                            Reach you career
-                          </h3>
-                          <h1 data-animation="animated slideInUp">
-                            Learn from best online training course
-                          </h1>
-                          <a
-                            data-animation="animated slideInUp"
-                            className="btn btn-light border btn-md"
-                            href="#"
-                          >
-                            Learn more
-                          </a>
-                          <a
-                            data-animation="animated slideInUp"
-                            className="btn btn-theme effect btn-md"
-                            href="#"
-                          >
-                            View Courses
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <a
-            className="left carousel-control"
-            href="#bootcarousel"
-            data-slide="prev"
-          >
-            <i className="fa fa-angle-left"></i>
-            <span className="sr-only">Previous</span>
-          </a>
-          <a
-            className="right carousel-control"
-            href="#bootcarousel"
-            data-slide="next"
-          >
-            <i className="fa fa-angle-right"></i>
-            <span className="sr-only">Next</span>
-          </a>
-        </div>
-      </div> */}
+      
     </div>
   );
 }

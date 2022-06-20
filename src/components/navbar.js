@@ -27,6 +27,12 @@ function Navbar() {
   const registerClick=()=>{
     setRedirect({redirect:'/register'});
   }
+  const addProdBtn=()=>{
+    setRedirect({redirect:'/add-product'});
+  }
+  const addNewsBtn=()=>{
+    setRedirect({redirect:'/add-news'});
+  }
   const logoutClick=()=>{
     Auth.logout();
     setRedirect({redirect:'/login'})
@@ -191,6 +197,16 @@ function Navbar() {
               </li>
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle active" data-toggle="dropdown" >{localStorage.getItem("jwt") ? <button className="btn" onClick={logoutClick}>Logout</button> : " "}</a>
+                
+                
+              </li>
+              <li className="dropdown">
+                <a href="#" className="dropdown-toggle active" data-toggle="dropdown" >{(localStorage.getItem("jwt") && localStorage.getItem("userType")=="admin") ? <button className="btn" onClick={addProdBtn}>Add Product</button> : ""}</a>
+                
+                
+              </li>
+              <li className="dropdown">
+                <a href="#" className="dropdown-toggle active" data-toggle="dropdown" >{localStorage.getItem("jwt") && localStorage.getItem("userType")=="admin" ? <button className="btn" onClick={addNewsBtn}>Add News</button> : ""}</a>
                 
                 
               </li>
