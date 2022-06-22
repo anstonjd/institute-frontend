@@ -38,6 +38,10 @@ function Navbar() {
     setRedirect({redirect:'/login'})
   }
 
+  const homeClick=()=>{
+    setRedirect({redirect:'/'})
+  }
+
 
   if(redirect.redirect){
     return <Navigate to={redirect.redirect} />
@@ -55,12 +59,12 @@ function Navbar() {
             <div className="top-search">
               <div className="input-group">
                 
-                <form action="#">
+                {/* <form action="#">
                   <input type="text" name="text" className="form-control" placeholder="Search"/>
                   <button type="submit">
                    
                   </button>
-                </form>
+                </form> */}
               </div>
             </div>
           </div>
@@ -70,12 +74,12 @@ function Navbar() {
         <div className="container">
 
           
-          <div className="attr-nav">
+          {/* <div className="attr-nav">
             <ul>
               <li className="search"><a href="#"><i className="fa fa-search"></i></a></li>
             </ul>
           </div>
-          
+           */}
           <div className="navbar-header">
             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
               <i className="fa fa-bars"></i>
@@ -89,10 +93,10 @@ function Navbar() {
           
           <div className="collapse navbar-collapse" id="navbar-menu">
             <ul className="nav navbar-nav navbar-right" data-in="#" data-out="#">
-              <li className="dropdown">
-                <a href="/news" className="dropdown-toggle active" data-toggle="dropdown" >Home</a>
+              <li className="">
+                <a href="/" className="dropdown-toggle active" onClick={homeClick} data-toggle="dropdown" >Home</a>
                 <ul className="dropdown-menu"> {Auth.isAuthenticated ? "hello" : "hey user"}</ul>
-                <ul className="dropdown-menu">
+                {/* <ul className="dropdown-menu">
                   
                   <li><a href="index.html">Home Version One</a></li>
                   <li><a href="index-2.html">Home Version Two</a></li>
@@ -107,9 +111,9 @@ function Navbar() {
                   <li><a href="index-4-onepage.html">Onepage Version Four</a></li>
                   <li><a href="index-5-onepage.html">Onepage Version Five</a></li>
                   <li><a href="index-6-onepage.html">Onepage Version Six</a></li>
-                </ul>
+                </ul> */}
               </li>
-              <li className="dropdown megamenu-fw">
+              {/* <li className="dropdown megamenu-fw">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown">Pages</a>
                 <ul className="dropdown-menu megamenu-content" role="menu">
                   <li>
@@ -162,22 +166,24 @@ function Navbar() {
                     </div>
                   </li>
                 </ul>
-              </li>
-              <li className="dropdown">
+              </li> */}
 
-                <a href="/products" className="dropdown-toggle active" onClick={onCourseClick} data-toggle="dropdown" >Coures</a>
-                
-              </li>
-              <li className="dropdown">
+              {Auth.isAuthenticated ? <li className="">
+
+<a href="/products" className="dropdown-toggle active" onClick={onCourseClick} data-toggle="dropdown" >Downloadble Materials</a>
+
+</li> : ""}
+              
+              {/* <li className="dropdown">
                 <a href="#" className="dropdown-toggle active" data-toggle="dropdown" >Teachers</a>
                 <ul className="dropdown-menu">
                   <li><a href="teachers.html">Advisor</a></li>
                   <li><a href="teachers-details.html">Advisor Details</a></li>
                 </ul>
-              </li>
+              </li> */}
               
-              <li className="dropdown">
-                <a  href="/news" className="dropdown-toggle" data-toggle="dropdown" onClick={onNewsClick} >Blog</a>
+              <li className="">
+                <a  href="/news" className="dropdown-toggle" data-toggle="dropdown" onClick={onNewsClick} >News</a>
                 {/* <ul className="dropdown-menu">
                   <li><a href="blog-standard.html">Blog Standard</a></li>
                   <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
@@ -187,25 +193,25 @@ function Navbar() {
                   <li><a href="blog-single-right-sidebar.html">Single Right Sidebar</a></li>
                 </ul> */}
               </li>
-              <li>
+              {/* <li>
                 <a href="contact.html">contact</a>
-              </li>
-              <li className="dropdown">
+              </li> */}
+              <li className="">
                 <a href="#" className="dropdown-toggle active" data-toggle="dropdown" >{localStorage.getItem("jwt") ? "hello" : <button className="btn" onClick={loginClick}>Login</button>}</a>
                 
                 
               </li>
-              <li className="dropdown">
+              <li className="">
                 <a href="#" className="dropdown-toggle active" data-toggle="dropdown" >{localStorage.getItem("jwt") ? <button className="btn" onClick={logoutClick}>Logout</button> : " "}</a>
                 
                 
               </li>
-              <li className="dropdown">
+              <li className="">
                 <a href="#" className="dropdown-toggle active" data-toggle="dropdown" >{(localStorage.getItem("jwt") && localStorage.getItem("userType")=="admin") ? <button className="btn" onClick={addProdBtn}>Add Product</button> : ""}</a>
                 
                 
               </li>
-              <li className="dropdown">
+              <li className="">
                 <a href="#" className="dropdown-toggle active" data-toggle="dropdown" >{localStorage.getItem("jwt") && localStorage.getItem("userType")=="admin" ? <button className="btn" onClick={addNewsBtn}>Add News</button> : ""}</a>
                 
                 

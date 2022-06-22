@@ -1001,7 +1001,7 @@ function LandingPage() {
         </div>
       </div>
     
-      <section id="event" className="event-area default-padding">
+      {/* <section id="event" className="event-area default-padding">
         <div className="container">
           <div className="row">
             <div className="site-heading text-center">
@@ -1153,7 +1153,7 @@ function LandingPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     
       <div className="reg-area default-padding-top bg-gray">
         <div className="container">
@@ -1294,7 +1294,7 @@ function LandingPage() {
         </div>
       </div>
     
-      <div id="blog" className="blog-area default-padding bottom-less">
+      {/* <div id="blog" className="blog-area default-padding bottom-less">
         <div className="container">
           <div className="row">
             <div className="site-heading text-center">
@@ -1405,7 +1405,7 @@ function LandingPage() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     
       <div className="clients-area default-padding bg-gray">
         <div className="container">
